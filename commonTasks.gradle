@@ -2,7 +2,7 @@ apply plugin: "java"
 apply plugin: 'eclipse-wtp'
 
 def commonGradleProps = new Properties()
-file("./commonTasks.properties").withInputStream { commonGradleProps.load(it) }
+file("${workspace}/commonTasks.properties").withInputStream { commonGradleProps.load(it) }
 
 compileJava.dependsOn clean
 
