@@ -24,10 +24,7 @@ task copyToLib {
 			from "${jar.archivePath}"
 			into "${commonGradleProps.stagingLib}"
 		}
-		println "Copying jar to the Directory: ${commonGradleProps.hdfsLib}";
-		exec {
-			commandLine "hdfs", "dfs", "-put","-f", "${jar.archivePath}", "${commonGradleProps.hdfsLib}"
-		}
+
 		println "Gradle test prop: ${gradleTestProp}";
 	  }
 }
