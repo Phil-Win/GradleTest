@@ -1,0 +1,36 @@
+apply plugin: "java"
+apply plugin: 'eclipse-wtp'
+
+def commonGradleProps = new Properties()
+file("../Common/commonTasks.properties").withInputStream { commonGradleProps.load(it) }
+
+compileJava.dependsOn clean
+
+task copyToLib {
+	dependsOn build
+	
+	
+	doLast {
+		println "Hello from the build.gradle file";
+		
+		println "Copying jar to the Directory: ${commonGradleProps.stagingLib}";
+		copy {
+			from "${jar.archivePath}"
+			into "${commonGradleProps.stagingLib}"
+		}
+		
+		println "Copying jar to the Directory: ${commonGradleProps.nasLib}";
+		copy {
+			from "${jar.archivePath}"
+			into "${commonGradleProps.stagingLib}"
+		}
+		println "Copying jar to the Directory: ${commonGradleProps.hdfsLib}";
+		exec {
+			commandLine "hdfs", "dfs", "-put","-f", "${jar.archivePath}", "${commonGradleProps.hdfsLib}"
+		}
+		println "Gradle test prop: ${gradleTestProp}";
+	  }
+}
+
+build.finalizedBy copyToLib
+
