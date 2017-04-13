@@ -1,5 +1,5 @@
 apply plugin: "java"
-apply from: '../Common/commonTasks.gradle'
+apply from: '../commonTasks.gradle'
 def commonString= "Gottem!"
 
 
