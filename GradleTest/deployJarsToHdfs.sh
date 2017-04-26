@@ -2,4 +2,8 @@
 
 source ./environment.properties;
 
-find ./build -name "*.jar" -exec cp {} ${JAR_HDFS_HOME};
+echo "Printing the variable from the env props: ${JAR_HDFS_HOME}"
+
+cd GradleTest;
+ls -la;
+cp build/libs/*.jar ../../../hdfs
