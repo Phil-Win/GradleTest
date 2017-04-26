@@ -11,7 +11,7 @@ task copyToLib {
 	doLast {
 		println "Hello from the build.gradle file";
 		
-		println "Copying jar to the Directory: ${commonGradleProps.stagingLib}";
+		println "Copying jar to the Directory: ";
 		copy {
 			from "${jar.archivePath}"
 			into "../repository"
