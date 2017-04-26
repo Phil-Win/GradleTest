@@ -17,5 +17,5 @@ jar {
 
 task newfun {
         println "hello fasha"
-        println "${comonString}"
+        println "${commonString}"
 }
