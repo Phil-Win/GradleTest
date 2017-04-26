@@ -15,7 +15,7 @@ jar {
 
 
 
-def newfun() {
+task newfun {
         println "hello fasha"
         println "${comonString}"
 }
