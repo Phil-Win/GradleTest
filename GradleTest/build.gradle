@@ -14,24 +14,8 @@ jar {
 
 
 
-task testFun {
-        newfun();
-        return 1;
-}
 
 def newfun() {
         println "hello fasha"
-        File testFile = new File('./test.txt');
-        File testFolder = new File('./test');
-        if ( testFile.isFile() ) {
-                println "File does exists"
-        } else {
-                println "File does not exists"
-        }
-        if ( testFile.isDirectory() ) {
-                println "dir exists"
-        } else {
-                println "dir doesn't exist"
-
-        }
+        println "${comonString}"
 }
